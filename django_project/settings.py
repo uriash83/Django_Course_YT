@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # tutaj musimy dodać nową aplikację
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
-    'users.apps.UsersConfig', # można też importować poprzez user a nie jak wyżej users.apps.UserConfig ale wtedy importujemy całą aplikaje 
+    'users.apps.UsersConfig', # można też importować poprzez user  ale wtedy importujemy całą aplikaje 
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -121,4 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') # media_root to tam gdzie trzyma się zdjęcie jak je importujemy z poziomu /admin
+MEDIA_URL = '/media/' # to skad importujemy zdjęćie
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'blog-home' # domyślnie po zalogowaniu przekierowuje nas do account/profile
+LOGIN_URL = 'login' #jak ktoś niezalogowany wejdzie na /profile to przekieruje go /login a nie będzie błędu
